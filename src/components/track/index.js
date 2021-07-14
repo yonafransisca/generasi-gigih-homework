@@ -1,6 +1,6 @@
 import React from 'react'
 import './Track.css'
-import Data from './Data'
+import Data from '../../data/Data'
 
 function Track() {
     

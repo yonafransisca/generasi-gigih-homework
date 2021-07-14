@@ -1,5 +1,5 @@
 import './App.css';
-import Track from './components/Track';
+import Track from './components/track/index';
 
 function App() {
   return (
