@@ -1,0 +1,54 @@
+.track {
+    /* background-color:  #F7B32B;
+    border: 15px solid #c28720; */
+    /* background-color: #e0f3e7; */
+    background-color: #FDFFFC;
+    box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
+    border-radius: 40px;
+    color: rgb(46, 46, 46);
+    width: 80%;
+    padding: 30px 0;
+    
+}
+
+.track-image {
+    width: 50%;
+    box-shadow: 0 10px 40px rgba(173, 154, 41, 0.582);
+    margin-bottom: 15px;
+    border-radius: 15px;
+}
+
+.track-title {
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.track-artist, .track-album {
+    font-size: 12px;
+}
+
+.btn {
+    padding: 15px 30px;
+    background-color: #37b249;
+    border-radius: 15px;
+    border: none;
+    margin-top: 15px;
+    cursor: pointer;
+    color:white;
+    font-family:'Montserrat', sans-serif;
+    font-weight: bold;
+}
+
+/* Responsive Breakpoint */
+
+
+@media only screen and (min-width: 768px) {
+    .track {
+        width: 40%;
+        padding: 30px 0;
+    }
+
+    .track-image {
+        width: 43%;
+    }
+}
