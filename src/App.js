@@ -1,13 +1,13 @@
 import './App.css';
-import Track from './components/track/index';
+import TrackComponents from './components/track/index';
 
 function App() {
+  
+
   return (
     <div className="App">
-      <h1>Create Playlist</h1>
-      <div className="container">
-        <Track />
-      </div>
+      <h1>Discover your favorite music.</h1>
+      <TrackComponents />
     </div>
   );
 }

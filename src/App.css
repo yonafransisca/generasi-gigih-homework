@@ -1,12 +1,9 @@
 .App {
-  text-align: center;
-}
-
-.container {
-  display: flex;
-  justify-content: center;
+  /* background-color: blue; */
+  margin: 50px 80px;
 }
 
 h1 {
-  margin: 40px;
+  color: rgb(127,103,198);
+  margin-left: 22px;
 }

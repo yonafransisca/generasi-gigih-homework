@@ -1,24 +1,46 @@
+.container {
+    display: flex;
+    flex-wrap: wrap;  
+    text-align: center;
+}
+
 .track {
-    /* background-color:  #F7B32B;
-    border: 15px solid #c28720; */
-    /* background-color: #e0f3e7; */
-    background-color: #FDFFFC;
-    box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
-    color: rgb(46, 46, 46);
-    width: 60%; 
-    padding: 35px 0 40px 0;
+    width: 20%;
+    padding: 15px 0 30px 0;
+    margin: 30px 25px;
+    background-color: rgba(244,250,227);
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 50px;
+    box-sizing: border-box;
     position: relative;
+    transition: .5s ease;
+}
+
+.track:hover {
+    transform: scale(1.05);
+}
+
+.track:hover .overlay {
+    height: 35%;
+}
+
+.track:hover p {
+    visibility: hidden;
+}
+
+.track:hover .track-image {
+    box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
 }
 
 .track-image {
-    width: 80%;
-    /* box-shadow: 0 10px 40px rgba(173, 154, 41, 0.582); */
+    width: 85%;
     margin-bottom: 10px;
+    transition: .5s ease;
+    
 }
 
 .track p {
     text-align: left;
-    padding: 0 35px;
+    padding: 0 20px;
     margin-block-start: 0;
     margin-block-end: 0;
     margin-inline-start: 0px;
@@ -28,20 +50,31 @@
 
 .track-title {
     font-weight: bold;
-    font-size: 15px;
+    font-size: 12px;
 }
 
 .track-artist {
-    font-size: 15px;
+    font-size: 12px;
 } 
 
 .track-album {
     font-size: 8px;
 }
 
+.overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    overflow: hidden;
+    width: 100%;
+    height: 0;
+    transition: .5s ease;
+  }
+
 .btn {
     padding: 12px 40px;
-    background-color: #37b249;
+    background-color: rgb(127,103,198);;
     border-radius: 30px;
     border: none;
     cursor: pointer;
@@ -49,26 +82,11 @@
     font-family:'Montserrat', sans-serif;
     font-weight: bold;
     position: absolute;
-    left: 120px;
-    bottom: -20px;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    text-align: center;
 }
 
-/* Responsive Breakpoint */
-
-
-@media only screen and (min-width: 768px) {
-    .track {
-        width: 300px;
-        padding: 30px 0 40px 0;
-    }
-
-    .track-image {
-        width: 80%;
-    }
-
-    .btn {
-        position: absolute;
-        left: 80px;
-        bottom: -20px;
-    }
-}
