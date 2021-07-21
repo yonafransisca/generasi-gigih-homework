@@ -1,13 +1,17 @@
 .container {
     display: flex;
-    flex-wrap: wrap;  
+    flex-wrap: wrap;
+    /* justify-content: space-between; */
     text-align: center;
+    width: 95%;
+    /* background-color: blueviolet; */
+    margin: auto;
 }
 
 .track {
     width: 20%;
     padding: 15px 0 30px 0;
-    margin: 30px 25px;
+    margin: 30px;
     background-color: rgba(244,250,227);
     box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 50px;
     box-sizing: border-box;
@@ -15,9 +19,9 @@
     transition: .5s ease;
 }
 
-.track:hover {
+/* .track:hover {
     transform: scale(1.05);
-}
+} */
 
 .track:hover .overlay {
     height: 35%;
@@ -72,15 +76,7 @@
     transition: .5s ease;
   }
 
-.btn {
-    padding: 12px 40px;
-    background-color: rgb(127,103,198);;
-    border-radius: 30px;
-    border: none;
-    cursor: pointer;
-    color:white;
-    font-family:'Montserrat', sans-serif;
-    font-weight: bold;
+.select{
     position: absolute;
     top: 50%;
     left: 50%;

@@ -1,9 +1,15 @@
-.App {
-  /* background-color: blue; */
-  margin: 50px 80px;
-}
-
 h1 {
   color: rgb(127,103,198);
   margin-left: 22px;
+}
+
+.btn {
+    padding: 12px 40px;
+    background-color: rgb(127,103,198);;
+    border-radius: 30px;
+    border: none;
+    cursor: pointer;
+    color:white;
+    font-family:'Montserrat', sans-serif;
+    font-weight: bold;
 }

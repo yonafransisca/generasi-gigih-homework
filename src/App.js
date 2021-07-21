@@ -1,13 +1,12 @@
 import './App.css';
-import TrackComponents from './components/track/index';
+import Header from './components/header';
+import SearchBar from './components/searchBar';
 
 function App() {
-  
-
   return (
     <div className="App">
-      <h1>Discover your favorite music.</h1>
-      <TrackComponents />
+      <Header />
+      <SearchBar />
     </div>
   );
 }
