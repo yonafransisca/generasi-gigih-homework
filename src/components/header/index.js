@@ -1,56 +1,47 @@
-import { useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import './Header.css'
+import handleLogin from '../handleLogin/handleLogin'
+import getTokenFromUrl from '../getTokenFromUrl/getTokenFromUrl'
 
-const clientId = process.env.REACT_APP_CLIENT_ID
-const spotifyAuthEndpoint = "https://accounts.spotify.com/authorize"
-const redirectUriAfterLogin = "http://localhost:3000/"
+const Header = () => {
+    const [isLogin, setIsLogin] = useState(false)
 
-
-export const getTokenFromUrl = () => {
-    return window.location.hash
-        .substring(1)
-        .split('&')
-        .reduce((acc, currentValue) => {
-            console.log(currentValue)
-            let [key, value] = currentValue.split('=')
-            acc[key] = value
-
-            return acc
-        }, {}) 
-}
-
-function Header() {
     useEffect(() => {
-        if (window.location.hash) {
-            const {
-                access_token, 
-                expires_in, 
-                token_type
-            } = getTokenFromUrl(window.location.hash)
-            
-            localStorage.clear()
-            localStorage.setItem("accessToken", access_token)
-            localStorage.setItem("tokenType", token_type)
-            localStorage.setItem("expiresIn", expires_in)
+        const hash = getTokenFromUrl();
+        const accessToken = hash.access_token;
+        if (accessToken) {
+            setIsLogin(true)
+        } else {
+            setIsLogin(false)
         }
-    })
+    }, [])
 
-    const handleLogin = () => {
-        window.location = `${spotifyAuthEndpoint}?client_id=${clientId}&redirect_uri=${redirectUriAfterLogin}&response_type=token&show_dialog=true`
+    const showLoginButton = () => {
+        return (
+            <button 
+                className="btn login"
+                onClick={handleLogin}
+            >
+                Login with Spotify
+            </button>
+        )
     }
-    
+
+    const showCreatePlaylistButton = () => {
+        return (
+            <button className="btn create-playlist">+ Create Playlist</button>
+        )
+    }
+
     return (
         <div className="header">
             <div>
                 <h1 className="logo">Create Playlist App</h1>
             </div>
             <div>
-                <button 
-                    className="btn login"
-                    onClick={handleLogin}
-                >
-                    Login with Spotify
-                </button>
+                {
+                    isLogin ? showCreatePlaylistButton() : showLoginButton()
+                }
             </div>
         </div>
     )

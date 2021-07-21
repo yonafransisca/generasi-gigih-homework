@@ -1,9 +1,9 @@
 import React from 'react'
-import './Track.css'
+import './TrackCard.css'
 import '../../App.css'
 
 
-function TrackCard(props) {
+const TrackCard = (props) => {
     return (
         <div className="track">
             <img className="track-image" src={props.image} alt={props.name} />
