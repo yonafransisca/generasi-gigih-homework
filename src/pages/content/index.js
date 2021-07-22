@@ -15,6 +15,7 @@ function Content() {
     const [searchQuery, setSearchQuery] = useState("")
     const [buttonStatus, setButtonStatus] = useState(false)
     const [itemStatus, setItemStatus] = useState("Select")
+    
 
     useEffect(() => {
         const hash = getTokenFromUrl();
