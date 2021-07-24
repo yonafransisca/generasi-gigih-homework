@@ -1,21 +1,20 @@
 import { useState, useEffect } from 'react'
 import '../../App.css'
 import './Content.css'
-import '../../components/trackCard/TrackCard.css'
+import '../../components/song/Song.css'
 import axios from 'axios'
 import Header from '../../components/header'
 import data from '../../data/Data'
 import getTokenFromUrl from '../../components/getTokenFromUrl/getTokenFromUrl'
 import askToLogin from '../../components/askToLogin'
+import TrackList from '../../components/trackList/trackList'
+import SearchBar from '../../components/searchBar/searchBar'
 
 function Content() {
     const [isLogin, setIsLogin] = useState(false)
     const [token, setToken] = useState(null)
     const [songs, setSongs] = useState(data)
     const [searchQuery, setSearchQuery] = useState("")
-    const [buttonStatus, setButtonStatus] = useState(false)
-    const [itemStatus, setItemStatus] = useState("Select")
-    
 
     useEffect(() => {
         const hash = getTokenFromUrl();
@@ -33,89 +32,37 @@ function Content() {
         setSearchQuery(event.target.value)
     }
 
-    const handleGetSpotifyTrack = (event) => {
-        event.preventDefault()
-        axios
-            .get(`https://api.spotify.com/v1/search?q=${searchQuery}&type=track&limit=12`, {
+    const getSpotifyTrack = async() => {
+        if(searchQuery !== "") {
+            const result = await axios.get(`https://api.spotify.com/v1/search?q=${searchQuery}&type=track&limit=12`, {
                 headers: {
                     Authorization: `Bearer ${token}`     
                 },
-            })   
-            .then((response) => {
-                if(searchQuery !== "") {
-                    setSongs(response.data.tracks.items)
-                    console.log(response.data.tracks.items)
-                } else {
-                    setSongs(data)
-                }
-            })
-            .catch((error) => {
-                console.log(error)
-            })
+            })  
+            setSongs(result.data.tracks.items) 
+            console.log(result.data.tracks.items)
+        } else {
+            setSongs(data)
+        }
     }
 
-    function handleSelectButton(id) {
-            songs.map(track => {
-            if (track.uri === id) {
-                console.log(track.uri)
-                setButtonStatus(!buttonStatus)
-                setItemStatus(!buttonStatus ? "Deselect" : "Select")
-            }
-            return track
-        })
+    const handleGetSearchResult = (event) => {
+        event.preventDefault()
+        getSpotifyTrack()
     }
 
-    const TrackCard = (props) => {
-        return (
-            <div className="track" >
-                {props.children}
-            </div>
-        )
-    }
-
-    const handleSearchResult = () => {
+    const SearchTrack = () => {
         return (
             <div className="search-bar">
-                <h1>Discover your favorite music.</h1>
-                <input 
-                    type="text"
-                    value={searchQuery}
-                    onChange={handleSearchQuery}
+                <SearchBar 
+                    query={searchQuery}
+                    handleQuery={handleSearchQuery}
+                    handleSubmit={handleGetSearchResult}
                 />
-                <button 
-                    onClick={handleGetSpotifyTrack}
-                    className="btn search"
-                >
-                    Search
-                </button>
-                <div className="container">
-                    {
-                        songs.map(track => {
-                            return (
-                                <TrackCard        
-                                    key={track.uri} 
-                                    // image={} 
-                                    // song={} 
-                                    // artist={} 
-                                    // album={}
-                                >
-                                    <img className="track-image" src={track.album.images[1].url} alt={track.name} />
-                                    <p className="track-title">{track.name}</p>
-                                    <p className="track-artist">{track.artists[0].name}</p>
-                                    <p className="track-album">{track.album.name}</p>
-                                    <div className="overlay">
-                                        <button
-                                            className="btn select"
-                                            onClick={() => handleSelectButton(track.uri)}
-                                        >
-                                            {itemStatus}
-                                        </button>
-                                    </div>
-                                </TrackCard>
-                            )
-                        })
-                    }
-                </div>
+                <TrackList 
+                    songs={songs}
+                    setSongs={setSongs}
+                />
             </div>
         )
     }
@@ -124,7 +71,7 @@ function Content() {
         <div>
             <Header />
             {
-                isLogin ? handleSearchResult() : askToLogin()
+                isLogin ? SearchTrack() : askToLogin()
             }
         </div>
     )
