@@ -10,13 +10,15 @@ h1 {
     border: none;
     cursor: pointer;
     color:white;
-    font-family:'Montserrat', sans-serif;
+    font-family:'Poppins', sans-serif;
     font-weight: bold;
     transition: .5s ease;
 }
 
 .btn:hover {
-  background-color: white;
+  /* background-color: white;
   border: 3px solid rgb(127,103,198);
-  color: rgb(127,103,198);
+  color: rgb(127,103,198); */
+  background-color: rgba(127,103,198,0.9);
+  transition: all 0.2s ease-in-out;
 }
