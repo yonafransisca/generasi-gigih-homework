@@ -1,8 +1,8 @@
-import './askToLogin.css'
-import handleLogin from '../handleLogin/handleLogin'
+import './LoginPage.css'
+import { handleLogin } from '../SpotifyService/spotifyService'
 import Image from '../../images/image-2.jpg'
 
-function AskToLogin() {
+const LoginPage = () => {
     return (
         <div className="get-started">
             <div className="login-background">
@@ -13,7 +13,7 @@ function AskToLogin() {
                 <div className="btn-wrapper">
                     <button 
                         onClick={handleLogin}
-                        className="btn call-to-action"
+                        className="btn call-to-action primary"
                     >
                         Get Started
                     </button>
@@ -23,4 +23,4 @@ function AskToLogin() {
     )
 }
 
-export default AskToLogin
+export default LoginPage

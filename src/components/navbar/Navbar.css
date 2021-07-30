@@ -26,8 +26,8 @@
 
 .count {
     display: inline-block;
-    background-color: rgb(241,239,233);
-    color: rgb(127,103,198);
+    background-color: #fff;
+    color: #010606;
     border-radius: 15px;
     padding: 0 6px;
     position: absolute;

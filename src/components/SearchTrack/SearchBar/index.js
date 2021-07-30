@@ -1,6 +1,4 @@
-import React from 'react'
-
-const searchBar = ({handleSubmit, query, handleQuery}) => {
+const SearchBar = ({handleSubmit, query, handleQuery}) => {
     return (
         <div>
             <h1>Discover your favorite music.</h1>
@@ -15,11 +13,11 @@ const searchBar = ({handleSubmit, query, handleQuery}) => {
                 <input 
                     type="submit"
                     value="Search"
-                    className="btn search" 
+                    className="btn secondary" 
                 />
             </form>
         </div>
     )
 }
 
-export default searchBar
+export default SearchBar

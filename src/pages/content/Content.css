@@ -7,9 +7,8 @@
     width: 50%;
     padding: 12px 40px;
     border-radius: 30px;
-    border: none;
+    border: 3px solid #535353;
     margin-right: 10px; 
-    font-family: 'Montserrat', sans-serif;
 }
 
 .container {

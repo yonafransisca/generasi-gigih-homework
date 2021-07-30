@@ -1,25 +1,14 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import './Navbar.css'
-import handleLogin from '../handleLogin/handleLogin'
-import getTokenFromUrl from '../getTokenFromUrl/getTokenFromUrl'
+import { handleLogin } from '../SpotifyService/spotifyService'
+import PlaylistForm from '../PlaylistForm'
 
-const Navbar = ({ countSelectedSong }) => {
-    const [isLogin, setIsLogin] = useState(false)
-
-    useEffect(() => {
-        const hash = getTokenFromUrl();
-        const accessToken = hash.access_token;
-        if (accessToken) {
-            setIsLogin(true)
-        } else {
-            setIsLogin(false)
-        }
-    }, [])
+const Navbar = ({ countSelectedSong, isLogin, token, selectedSong, setSelectedSong }) => {
 
     const showLoginButton = () => {
         return (
             <button 
-                className="btn login"
+                className="btn primary"
                 onClick={handleLogin}
             >
                 Login with Spotify
@@ -27,25 +16,45 @@ const Navbar = ({ countSelectedSong }) => {
         )
     }
 
-    const showCreatePlaylistButton = () => {
+    const ShowCreatePlaylistButton = () => {
+        const [isOpen, setIsOpen] = useState(false)
+
+        const handleClosePlaylistForm = () => {
+            setIsOpen(false)
+        }
+
         return (
             <div className="playlist-btn-wrapper">
                 {countSelectedSong ? (<p className="count">{countSelectedSong}</p>) : ('')}
-                <button className="btn create-playlist">
+                <button 
+                    className="btn primary"
+                    onClick={() => setIsOpen(true)}
+                >
                     {'    '}Create Playlist
                 </button>
+                <PlaylistForm 
+                    open={isOpen} 
+                    onClose={handleClosePlaylistForm} 
+                    token={token}
+                    selectedSong={selectedSong}
+                    setSelectedSong={setSelectedSong}
+                    countSelectedSong={countSelectedSong}
+                    handleClosePlaylistForm={handleClosePlaylistForm}
+                />
             </div>
         )
     }
 
     return (
-        <div className="header" >
+        <div className="header" style={isLogin ? {backgroundColor: '#fff'} : {backgroundColor: 'transparent'}}>
             <div>
-                <h1 className="logo">Create Playlist App</h1>
+                <h1 className="logo" style={isLogin ? {color: 'black'} : {color: '#fff'}}>
+                    Create Playlist App
+                </h1>
             </div>
             <div>
                 {
-                    isLogin ? showCreatePlaylistButton() : showLoginButton()
+                    isLogin ? ShowCreatePlaylistButton() : showLoginButton()
                 }
             </div>
         </div>

@@ -1,20 +1,7 @@
-import React, { useState } from 'react'
-import '../../pages/content/Content.css'
-import Song from '../song/index'
+import '../../../pages/content/Content.css'
+import Song from './Song/index'
 
 const TrackList = ({ songs, handleSelectButton, isSelected}) => {
-
-    // const [buttonColor, setButtonColor] = useState("rgb(127,103,198)")
-    // // const [buttonTextColor, setButtonTextColor] = useState("white")
-    // // const [buttonBorder, setButtonBorder] = useState("none")
-    const [buttonStyle, setButtonStyle] = useState({
-        backgroundColor: "rgb(127,103,198)", 
-        color: "white", 
-        border: "none"
-    })
-
-    
-
     return (
         <div className="container">
             {

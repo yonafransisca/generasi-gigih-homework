@@ -2,16 +2,15 @@
     width: 20%;
     padding: 15px 0 70px 0;
     margin: 30px;
-    background-color: #F1EFE9;
-
-    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 50px;
+    /* background-color: #F1EFE9; */
+    background-color: #fff;
+    /* box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 50px; */
     box-sizing: border-box;
     position: relative;
     transition: .5s ease;
 }
 
 .track:hover {
-    background-color: white;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px;
 }
 

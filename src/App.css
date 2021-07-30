@@ -1,24 +1,43 @@
 h1 {
-  color: rgb(127,103,198);
+  color: #010606;
   margin-left: 22px;
 }
 
 .btn {
     padding: 12px 40px;
-    background-color: rgb(127,103,198);
     border-radius: 30px;
     border: none;
     cursor: pointer;
-    color:white;
+    color:#fff;
     font-family:'Poppins', sans-serif;
     font-weight: bold;
     transition: .5s ease;
 }
 
-.btn:hover {
-  /* background-color: white;
-  border: 3px solid rgb(127,103,198);
-  color: rgb(127,103,198); */
-  background-color: rgba(127,103,198,0.9);
+.primary {
+  background-color: #1DB954;
+}
+
+.primary:hover {
+  background-color: #010606;
+  transition: all 0.2s ease-in-out;
+}
+
+.secondary {
+  background-color: #010606;
+}
+
+.secondary:hover {
+  background-color: #535353;
+  transition: all 0.2s ease-in-out;
+}
+
+.cancel {
+  color: #535353;
+  background-color: #fff;
+}
+
+.cancel:hover {
+  color: #010606;
   transition: all 0.2s ease-in-out;
 }
