@@ -1,44 +1,56 @@
-import { useState } from "react"
-import data from '../../data/Data'
-import { API_ENDPOINT } from "../SpotifyService/spotifyApi"  
-import SearchBar from "./SearchBar" 
-import TrackList from "./trackList"
-import axios from "axios"
+import { useState } from 'react';
+import axios from 'axios';
+import data from '../../data/Data';
+import { API_ENDPOINT } from '../SpotifyService/spotifyApi';
+import SearchBar from './SearchBar';
+import TrackList from './trackList';
 
 const SearchTrack = ({ token, selectedSong, setSelectedSong }) => {
-    const [songs, setSongs] = useState(data)
-    const [searchQuery, setSearchQuery] = useState("")
-    
+    const [songs, setSongs] = useState(data);
+    const [searchQuery, setSearchQuery] = useState('');
+
     const handleSearchQuery = (event) => {
-        setSearchQuery(event.target.value)
-    }
-    
-    const getSpotifyTrack = async() => {
-        if(searchQuery !== "") {
+        setSearchQuery(event.target.value);
+    };
+
+    const getSpotifyTrack = async () => {
+        if (searchQuery !== '') {
             const result = await axios.get(`${API_ENDPOINT}/search`, {
                 headers: {
-                    Authorization: `Bearer ${token}`     
+                    Authorization: `Bearer ${token}`,
                 },
                 params: {
                     q: searchQuery,
-                    type: "track",
+                    type: 'track',
                     limit: 12,
-                  },
-            })  
-            setSongs(result.data.tracks.items) 
+                },
+            });
+            setSongs(result.data.tracks.items);
         } else {
-            setSongs(data)
+            setSongs(data);
         }
-    }
+    };
 
     const handleGetSearchResult = (event) => {
-        event.preventDefault()
-        getSpotifyTrack()
-    }
+        event.preventDefault();
+        getSpotifyTrack();
+    };
 
     const isSelected = (song) => {
         return selectedSong.includes(song);
-    }
+    };
+
+    const addSelection = (song) => {
+        setSelectedSong([...selectedSong, song]);
+        // eslint-disable-next-line no-console
+        console.log(selectedSong);
+    };
+
+    const removeSelection = (song) => {
+        setSelectedSong(selectedSong.filter((track) => { return track !== song; }));
+        // eslint-disable-next-line no-console
+        console.log(selectedSong);
+    };
 
     const handleSelectButton = (song) => {
         if (!isSelected(song)) {
@@ -46,32 +58,22 @@ const SearchTrack = ({ token, selectedSong, setSelectedSong }) => {
         } else {
             removeSelection(song);
         }
-    }
-
-    const addSelection = (song) => {
-        setSelectedSong([...selectedSong, song]);
-        console.log(selectedSong)
-    }
-
-    const removeSelection = (song) => {
-        setSelectedSong(selectedSong.filter((track) => track !== song));
-        console.log(selectedSong)
-    }
+    };
 
     return (
         <div className="search-bar">
-            <SearchBar 
+            <SearchBar
                 query={searchQuery}
                 handleQuery={handleSearchQuery}
                 handleSubmit={handleGetSearchResult}
             />
-            <TrackList 
+            <TrackList
                 songs={songs}
                 handleSelectButton={handleSelectButton}
                 isSelected={isSelected}
             />
         </div>
-    )
-}
+    );
+};
 
-export default SearchTrack
+export default SearchTrack;

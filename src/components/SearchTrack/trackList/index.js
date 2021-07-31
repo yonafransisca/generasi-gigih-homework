@@ -1,13 +1,13 @@
-import '../../../pages/content/Content.css'
-import Song from './Song/index'
+import '../../../pages/content/Content.css';
+import Song from './Song/index';
 
-const TrackList = ({ songs, handleSelectButton, isSelected}) => {
+const TrackList = ({ songs, handleSelectButton, isSelected }) => {
     return (
         <div className="container">
             {
-                songs.map(song => {
+                songs.map((song) => {
                     return (
-                        < Song 
+                        <Song
                             song={song}
                             key={song.uri}
                             id={song.uri}
@@ -18,11 +18,11 @@ const TrackList = ({ songs, handleSelectButton, isSelected}) => {
                             handleSelectButton={handleSelectButton}
                             isSelected={isSelected}
                         />
-                    )
+                    );
                 })
             }
         </div>
-    )
-}
+    );
+};
 
-export default TrackList
+export default TrackList;
