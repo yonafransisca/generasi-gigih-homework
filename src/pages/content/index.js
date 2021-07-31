@@ -6,6 +6,12 @@ import { getTokenFromUrl } from '../../components/SpotifyService/spotifyService'
 import LoginPage from '../../components/LoginPage'
 import SearchTrack from '../../components/SearchTrack/index'
 import Navbar from '../../components/Navbar'
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    Redirect,
+} from 'react-router-dom'
 
 function Content() {
     const [isLogin, setIsLogin] = useState(false)
@@ -25,24 +31,27 @@ function Content() {
     }, [])
 
     return (
-        <div>
-            <Navbar 
-                countSelectedSong={selectedSong.length}
-                isLogin={isLogin}
-                token={token} 
-                selectedSong={selectedSong}
-                setSelectedSong={setSelectedSong}
-            />
-            {
-                isLogin 
-                ? <SearchTrack 
+        <Router>
+            <Switch>
+                <Navbar 
+                    countSelectedSong={selectedSong.length}
+                    isLogin={isLogin}
                     token={token} 
                     selectedSong={selectedSong}
                     setSelectedSong={setSelectedSong}
-                /> 
-                : <LoginPage/>
-            }
-        </div>
+                />
+                <Route exact path="/create-playlist">
+                    {
+                        token ? <SearchTrack token={token} selectedSong={selectedSong} setSelectedSong={setSelectedSong} /> : <Redirect to="/" />
+                    }
+                </Route>
+                <Route exact path="/">
+                    {
+                        <LoginPage />
+                    }
+                </Route>
+            </Switch>
+        </Router>
     )
     
 }
