@@ -1,26 +1,17 @@
 .track {
-    width: 20%;
-    padding: 15px 0 70px 0;
-    margin: 30px;
-    /* background-color: #F1EFE9; */
+    padding: 1em 0;
     background-color: #fff;
-    /* box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 50px; */
     box-sizing: border-box;
     position: relative;
     transition: .5s ease;
+    display: grid;
+    grid-template-rows: 2fr 0.7fr 0.5fr;
+
 }
 
 .track:hover {
     box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px;
 }
-
-/* .track:hover .overlay {
-    height: 35%;
-} */
-
-/* .track:hover p {
-    visibility: hidden;
-} */
 
 .track:hover .track-image {
     box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
@@ -28,9 +19,8 @@
 
 .track-image {
     width: 85%;
-    margin-bottom: 10px;
-    transition: .5s ease;
-    
+    transition: .5s ease; 
+    margin-bottom: 5px;
 }
 
 .track p {
@@ -56,25 +46,14 @@
     font-size: 8px;
 }
 
-/* .overlay {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    overflow: hidden;
-    width: 100%;
-    height: 0;
-    transition: .5s ease;
-  } */
-
-.overlay{
-    position: absolute;
-    top:90%;
-    left: 50%;
-    -webkit-transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-    text-align: center;
-    transition: .5s ease;
+@media screen and (max-width: 1200px) {
+    .track {
+        display: grid;
+        width: 100%;
+        grid-template-columns: 0.5fr 2fr 0.5fr;
+        grid-template-rows: 1fr;
+        margin: auto;
+        padding: 1em;
+        align-items: start;
+    }
 }
-

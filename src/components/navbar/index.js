@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import './Navbar.css';
+import { Link } from 'react-router-dom';
 import { handleLogin } from '../SpotifyService/spotifyService';
 import PlaylistForm from '../PlaylistForm';
 
@@ -57,7 +58,8 @@ const Navbar = ({ countSelectedSong, isLogin, token, selectedSong, setSelectedSo
             }}
         >
             <div>
-                <h1
+                <Link
+                    to="/create-playlist"
                     className="logo"
                     style={isLogin ? {
                         color: 'black',
@@ -66,7 +68,7 @@ const Navbar = ({ countSelectedSong, isLogin, token, selectedSong, setSelectedSo
                     }}
                 >
                     Create Playlist App
-                </h1>
+                </Link>
             </div>
             <div>
                 {

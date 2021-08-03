@@ -61,7 +61,7 @@ const SearchTrack = ({ token, selectedSong, setSelectedSong }) => {
     };
 
     return (
-        <div className="search-bar">
+        <div className="search-track">
             <SearchBar
                 query={searchQuery}
                 handleQuery={handleSearchQuery}

@@ -1,0 +1,30 @@
+.search-bar {
+    text-align: center;
+    margin-top: 100px;
+    display: flex;
+    flex-direction: column;
+}
+
+.search-headline {
+    margin: auto auto 30px auto;
+    max-width: 80%;
+}
+
+.bar {
+    width: 50%;
+    padding: 12px 40px;
+    border-radius: 30px;
+    border: 3px solid #535353;
+    margin-right: 10px; 
+}
+
+@media screen and (max-width: 786px) {
+    .bar {
+        width: 70%;
+        margin: auto;
+    }
+    .hide {
+        display: none;
+    }
+}
+

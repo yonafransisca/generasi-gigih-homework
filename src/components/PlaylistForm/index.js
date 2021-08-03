@@ -63,7 +63,7 @@ const PlaylistForm = ({ open, onClose, handleClosePlaylistForm, token, selectedS
                         },
                     });
                 // eslint-disable-next-line no-alert
-                alert('New playlist created on your Spotify Account!');
+                alert('A new playlist has been created in your Spotify Account!');
                 setSelectedSong([]);
                 handleClosePlaylistForm();
                 event.target.reset();

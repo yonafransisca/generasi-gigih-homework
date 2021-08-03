@@ -18,10 +18,14 @@ const Song = ({ image, song, title, artist, handleSelectButton, isSelected }) =>
                 }
             }
         >
-            <img className="track-image" src={image} alt={title} />
-            <p className="track-title">{title}</p>
-            <p className="track-artist">{artist}</p>
-            <div className="overlay">
+            <div className="image-wrapper">
+                <img className="track-image" src={image} alt={title} />
+            </div>
+            <div className="info-wrapper">
+                <p className="track-title">{title}</p>
+                <p className="track-artist">{artist}</p>
+            </div>
+            <div className="btn-wrapper">
                 <button
                     className="btn primary"
                     style={

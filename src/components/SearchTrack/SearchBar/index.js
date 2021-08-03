@@ -1,7 +1,9 @@
+import './SearchBar.css';
+
 const SearchBar = ({ handleSubmit, query, handleQuery }) => {
     return (
-        <div>
-            <h1>Discover your favorite music.</h1>
+        <div className="search-bar">
+            <h1 className="search-headline">Discover your favorite music.</h1>
             <form onSubmit={handleSubmit}>
                 <input
                     type="text"
@@ -10,11 +12,13 @@ const SearchBar = ({ handleSubmit, query, handleQuery }) => {
                     value={query}
                     onChange={handleQuery}
                 />
-                <input
+                <button
                     type="submit"
                     value="Search"
-                    className="btn secondary"
-                />
+                    className="btn secondary hide"
+                >
+                    Search
+                </button>
             </form>
         </div>
     );

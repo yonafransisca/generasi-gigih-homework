@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import '../../App.css';
-import './Content.css';
 import '../../components/SearchTrack/trackList/Song/Song.css';
 import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
 import { getTokenFromUrl } from '../../components/SpotifyService/spotifyService';

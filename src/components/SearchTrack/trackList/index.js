@@ -1,5 +1,5 @@
-import '../../../pages/content/Content.css';
 import Song from './Song/index';
+import './TrackList.css';
 
 const TrackList = ({ songs, handleSelectButton, isSelected }) => {
     return (
