@@ -1,0 +1,17 @@
+.track {
+    padding: 1em 0;
+    background-color: #fff;
+    box-sizing: border-box;
+    position: relative;
+    transition: .5s ease;
+    display: grid;
+    grid-template-rows: 2fr 0.7fr 0.5fr;
+
+    &:hover {
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px;
+
+        .track-image {
+            box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
+        }
+    }
+}

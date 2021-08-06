@@ -1,4 +1,5 @@
 import './Song.css';
+import './song.scss';
 
 const Song = ({ image, song, title, artist, handleSelectButton, isSelected }) => {
     const CARD_SELECTED_STYLES = {
