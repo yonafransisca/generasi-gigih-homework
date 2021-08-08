@@ -1,4 +1,4 @@
-import Song from './Song/index';
+import Song from './Song/index.tsx';
 import './TrackList.css';
 
 const TrackList = ({ songs, handleSelectButton, isSelected }) => {

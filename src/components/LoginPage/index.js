@@ -1,6 +1,6 @@
 import './LoginPage.css';
 import { handleLogin } from '../SpotifyService/spotifyService';
-import Image from '../../images/image-2.jpg';
+import Image from '../../images/image-4.jpg';
 
 const LoginPage = () => {
     return (

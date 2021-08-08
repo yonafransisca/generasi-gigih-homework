@@ -1,15 +1,15 @@
 .get-started {
     background: #0c0c0c;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     padding: 0 30px;
-    height: 650px;
+    height: 100vh;
     position: relative;
     z-index: 1;
 }
 
-.get-started::before {
+/* .get-started::before {
     content: '';
     position: absolute;
     top: 0;
@@ -23,7 +23,7 @@
     ),
     linear-gradient(180deg, rgba(0,0,0,0.2) 0%, transparent 100%);
     z-index: 2;
-}
+} */
 
 .login-background {
     position: absolute;
@@ -48,18 +48,17 @@
 
 .login-content {
     z-index: 3;
-    max-width: 1200px;
+    max-width: 35vw;
     position: absolute;
     padding: 8px 24px;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
 }
 
 .slogan {
-    font-size: 64px;
-    text-align: center;
-    max-width: 800px;
+    font-size: 3em;
+    text-align: left;
     z-index: 10;
     color: #fff;
 }

@@ -1,13 +1,16 @@
 .track {
     padding: 1em 0;
-    background-color: #fff;
+    // background-color: #fff;
+    background-color: #001532;
     box-sizing: border-box;
     position: relative;
     transition: .5s ease;
     display: grid;
     grid-template-rows: 2fr 0.7fr 0.5fr;
+    border-radius: 15px;
 
     &:hover {
+        background-color: rgba(0, 21, 50, 0.4);
         box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px;
 
         .track-image {

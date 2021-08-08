@@ -1,4 +1,4 @@
-/* .track {
+.track {
     padding: 1em 0;
     background-color: #fff;
     box-sizing: border-box;
@@ -6,17 +6,19 @@
     transition: .5s ease;
     display: grid;
     grid-template-rows: 2fr 0.7fr 0.5fr;
-
-
+    /* background-color: #001532;
+    background-color: rgba(8, 32, 61);
+    box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px; */
 }
 
 .track:hover {
     box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px;
+    /* background-color: rgb(20, 47, 82); */
 }
 
 .track:hover .track-image {
     box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
-} */
+}
 
 .track-image {
     width: 85%;
@@ -32,6 +34,7 @@
     margin-inline-start: 0px;
     margin-inline-end: 0px;
     margin-top: 5px;
+    /* color: #fff; */
 }
 
 .track-title {
@@ -56,5 +59,6 @@
         margin: auto;
         padding: 1em;
         align-items: start;
+
     }
 }
