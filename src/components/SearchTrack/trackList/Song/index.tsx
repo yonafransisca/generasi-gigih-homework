@@ -31,8 +31,8 @@ const Song = ({ image, id, title, artist, handleSelectButton, isSelected } : Son
                 <img className="track-image" src={image} alt={title} />
             </div>
             <div className="info-wrapper">
-                <p className="track-title">{title}</p>
-                <p className="track-artist">{artist}</p>
+                <p className="track-title" data-testid="track-title">{title}</p>
+                <p className="track-artist" data-testid="track-artist">{artist}</p>
             </div>
             <div className="btn-wrapper">
                 <button
