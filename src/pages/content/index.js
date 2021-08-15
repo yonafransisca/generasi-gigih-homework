@@ -5,7 +5,7 @@ import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-d
 import { getTokenFromUrl } from '../../components/SpotifyService/spotifyService';
 import LoginPage from '../../components/LoginPage';
 import SearchTrack from '../../components/SearchTrack/index.tsx';
-import Navbar from '../../components/Navbar';
+import Navbar from '../../components/navbar';
 
 function Content() {
     const [isLogin, setIsLogin] = useState(false);
