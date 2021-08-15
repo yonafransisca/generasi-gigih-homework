@@ -19,7 +19,7 @@
     ],
     "rules": {
         "react/react-in-jsx-scope": "off",
-        "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+        "react/jsx-filename-extension": [2, { "extensions": [".js", ".jsx", ".ts", ".tsx"] }],
         "linebreak-style": ["error", "windows"],
         "indent": ["error", 4],
         "react/jsx-indent" : ["error", 4],
